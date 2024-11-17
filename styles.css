@@ -197,10 +197,27 @@ textarea {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    position: relative;
 }
 
-input[type="range"] {
+.slider-container input[type="range"] {
     width: 150px;
+    accent-color: var(--primary-color);
+}
+
+/* Add value display for speed slider */
+.slider-container input[type="range"]#speedControl {
+    margin-bottom: 1.5em;
+}
+
+.slider-container input[type="range"]#speedControl::after {
+    content: attr(value) "x";
+    position: absolute;
+    bottom: -1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    color: var(--text-color);
 }
 
 .highlighted-text {
@@ -248,6 +265,17 @@ input[type="range"] {
 .status-message.info {
     background-color: var(--info-color);
     color: white;
+}
+
+/* Error message styles */
+.error-message {
+    background-color: var(--error-color);
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 /* Select element styles */
